@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build:storybook": "vue-cli-service build:storybook -c config/storybook",
-    "serve:storybook": "vue-cli-service serve:storybook -p 6006 -c config/storybook"
+    "books:build": "vue-cli-service build:storybook -c config/storybook",
+    "books": "vue-cli-service serve:storybook -p 6006 -c config/storybook"
   },
   "dependencies": {
     "@storybook/vue": "^3.4.11",
