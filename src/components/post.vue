@@ -2,6 +2,7 @@
 	section
 		header
 			span.name {{ name }}
+			span.host {{ host }}
 			span.badge.admin(v-if="isAdmin") ADMIN
 			span.badge.topic-owner(v-if="isTopicOwner") &gt;&gt;1
 			span.timestamp {{ timestamp }}
@@ -30,6 +31,7 @@ import { Prop, Component, Vue } from 'vue-property-decorator';
 })
 export default class Post extends Vue {
 	@Prop() private name: string;
+	@Prop() private host: string;
 	@Prop() private isAdmin: boolean;
 	@Prop() private isTopicOwner: boolean;
 	@Prop() private message: string;
@@ -86,6 +88,12 @@ header {
 	.name {
 		font-weight: bold;
 		font-size: 1.3rem;
+	}
+	.host {
+		color: $gray;
+		font-style: italic;
+		align-self: flex-end;
+		margin-right: 0.9rem;
 	}
 	.badge {
 		border-radius: 4px;
