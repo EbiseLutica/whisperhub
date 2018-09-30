@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions"
 import MyButton from "../components/MyButton.vue"
 import HelloWorld from "../components/HelloWorld.vue"
 import Post from "../components/Post.vue"
+import PostList from "../components/PostList.vue"
 
 import Vue from 'vue';
 import Vuex from 'vuex'; // Vue plugins をインポートします
@@ -33,9 +34,18 @@ const p = {
 	],
 	isStarred: false,
 	timestamp: "たった今",
+	index: 0,
 };
 
+let ind = 0;
+const posts = Array(90).fill({}).map((post) => Object.assign({}, p))
 
+posts.forEach((v, i) => {
+	v.index = i;
+	v.isAdmin = v.isTopicOwner = false;
+});
+
+console.log(posts.length);
 
 storiesOf("Post", module)
 	.add("post", () => ({
@@ -49,6 +59,10 @@ storiesOf("Post", module)
 		:reactions='${JSON.stringify(p.reactions)}'
 		:isStarred="${p.isStarred}"
 		timestamp="${p.timestamp}"/>`
+	}))
+	.add("postlist", () => ({
+		components: { PostList },
+		template: `<post-list :posts='${JSON.stringify(posts)}'/>`
 	}));
 
 storiesOf("Hello world", module)
