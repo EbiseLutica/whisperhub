@@ -6,6 +6,7 @@ import PostList from "../components/PostList.vue"
 import VHeader from "../components/VHeader.vue"
 import Window from "../components/Window.vue"
 import CreateNewPost from "../components/CreateNewPost.vue"
+import AiWindow from "../components/AiWindow.vue"
 
 import Vue from 'vue';
 import Vuex from 'vuex'; // Vue plugins をインポートします
@@ -81,3 +82,7 @@ storiesOf("Window", module)
 		components: { CreateNewPost },
 		template: `<create-new-post/>`
 	}))
+	.add("藍ちゃん", () => ({
+		components: { AiWindow },
+		template: `<ai-window/>`
+	}));
