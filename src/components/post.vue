@@ -81,7 +81,7 @@ section {
 
 header {
 	display: flex;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	* {
 		margin-right: 0.5rem;
 	}
