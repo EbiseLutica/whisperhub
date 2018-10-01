@@ -63,7 +63,6 @@ export default class Window extends Vue {
 	box-shadow: 0 0 8px black;
 	position: fixed;
 
-	background: #fafafa;
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
@@ -75,8 +74,8 @@ export default class Window extends Vue {
 		align-items: center;
 		justify-content: center;
 		height: 2rem;
-		background: rgba(#777, 0.5);
-		backdrop-filter: blur(16px);
+		background: rgba(#777, 0.3);
+		backdrop-filter: blur(8px);
 		font-size: 1.2rem;
 		cursor: move;
 
@@ -92,6 +91,8 @@ export default class Window extends Vue {
 	}
 	.body {
 		margin: auto;
+		background: rgba(#fafafa, 0.6);
+		backdrop-filter: blur(8px);
 		padding: 0.5rem 2rem;
 	}
 }
