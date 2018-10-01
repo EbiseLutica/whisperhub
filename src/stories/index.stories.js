@@ -6,9 +6,10 @@ import MyButton from "../components/MyButton.vue"
 import HelloWorld from "../components/HelloWorld.vue"
 import Post from "../components/Post.vue"
 import PostList from "../components/PostList.vue"
+import VHeader from "../components/VHeader.vue"
 
 import Vue from 'vue';
-import Vuex from 'vuex'; // Vue plugins ăă¤ăłăăźăăăžă
+import Vuex from 'vuex'; // Vue plugins をインポートします
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -23,17 +24,17 @@ library.add(fab);
 Vue.component('fa', FontAwesomeIcon);
 
 const p = {
-	name: "ĺçĄăăă",
+	name: "名無しさん",
 	host: "@whisperhub.net",
 	isAdmin: true,
 	isTopicOwner: true,
 	message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 	reactions: [
-		{ reactionChar: "đ¤", reactionCount: 10, isMyReaction: false },
-		{ reactionChar: "đ", reactionCount: 3, isMyReaction: true },
+		{ reactionChar: "🤔", reactionCount: 10, isMyReaction: false },
+		{ reactionChar: "👍", reactionCount: 3, isMyReaction: true },
 	],
 	isStarred: false,
-	timestamp: "ăăŁăäť",
+	timestamp: "たった今",
 	index: 0,
 };
 
@@ -59,6 +60,16 @@ storiesOf("Post", module)
 		:reactions='${JSON.stringify(p.reactions)}'
 		:isStarred="${p.isStarred}"
 		timestamp="${p.timestamp}"/>`
+	}))
+	.add("postlist", () => ({
+		components: { PostList },
+		template: `<post-list :posts='${JSON.stringify(posts)}'/>`
+	}));
+
+storiesOf("Header", module)
+	.add("header", () => ({
+		components: { VHeader },
+		template: `<v-header/>`
 	}))
 	.add("postlist", () => ({
 		components: { PostList },
