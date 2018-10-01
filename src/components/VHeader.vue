@@ -1,14 +1,14 @@
 <template lang="pug">
-header
+header.vheader
 	.title
 		img(src="../assets/title.svg")
-	router-link.command(tag="a", to="#", :class="{ active: view === 'home' }", @click="view = 'home'")
+	router-link.command(tag="a", to="/", :class="{ active: is('home') }")
 		fa(fas, icon="home", fixed-width)
-	router-link.command(tag="a", to="#", :class="{ active: view === 'thread' }", @click="view = 'thread'")
+	router-link.command(tag="a", to="/Thread", :class="{ active: is('thread') }")
 		fa(fas, icon="folder", fixed-width)
-	router-link.command(tag="a", to="#", :class="{ active: view === 'global' }", @click="view = 'global'")
+	router-link.command(tag="a", to="/Global", :class="{ active: is('global') }")
 		fa(fas, icon="globe", fixed-width)
-	router-link.command(tag="a", to="#", :class="{ active: view === 'messaging' }", @click="view = 'messaging'")
+	router-link.command(tag="a", to="/Messaging", :class="{ active: is('messaging') }")
 		fa(fas, icon="comment", fixed-width)
 
 
@@ -21,11 +21,15 @@ import { Prop, Component, Vue } from "vue-property-decorator";
 })
 export default class VHeader extends Vue {
 	private view = "home";
+
+	public is(routeName: string) {
+		return routeName === this.$route.name;
+	}
 }
 </script>
 
-<style lang="scss" scoped>
-header {
+<style lang="scss">
+header.vheader {
 	position: fixed;
 	display: flex;
 	top: 0;
@@ -33,7 +37,7 @@ header {
 	right: 0;
 	height: 4rem;
 	background: rgba(#424242, 0.5);
-	backdrop-filter: blur(16px);
+	backdrop-filter: blur(8px);
 	box-shadow: 0 0 4px #0a0a0a;
 	color: #FAFAFA;
 	align-items: stretch;
@@ -60,12 +64,12 @@ header {
 		justify-content: center;
 		cursor: pointer;
 		&:hover {
-			background: rgba(#424242, 0.5);
+			background: rgba(#424242, 0.1);
 		}
 		&.active {
 			border: none;
 			border-bottom: 6px solid #9C27B0;
-			background: rgba(#424242, 0.8);
+			background: rgba(#424242, 0.3);
 		}
 		transition: all 0.2s ease;
 	}
