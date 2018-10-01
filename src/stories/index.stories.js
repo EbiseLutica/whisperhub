@@ -4,6 +4,8 @@ import { storiesOf } from "@storybook/vue"
 import Post from "../components/Post.vue"
 import PostList from "../components/PostList.vue"
 import VHeader from "../components/VHeader.vue"
+import Window from "../components/Window.vue"
+import CreateNewPost from "../components/CreateNewPost.vue"
 
 import Vue from 'vue';
 import Vuex from 'vuex'; // Vue plugins をインポートします
@@ -44,8 +46,6 @@ posts.forEach((v, i) => {
 	v.isAdmin = v.isTopicOwner = false;
 });
 
-console.log(posts.length);
-
 storiesOf("Post", module)
 	.add("post", () => ({
 		components: { Post },
@@ -69,3 +69,15 @@ storiesOf("Header", module)
 		components: { VHeader },
 		template: `<v-header/>`
 	}));
+
+storiesOf("Window", module)
+	.add("window", () => ({
+		components: { Window },
+		template: `<window title="New Window" width="400px" height="400px">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</window>`
+	}))
+	.add("create new post window", () => ({
+		components: { CreateNewPost },
+		template: `<create-new-post/>`
+	}))
