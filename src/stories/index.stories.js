@@ -70,27 +70,6 @@ storiesOf("Header", module)
 	.add("header", () => ({
 		components: { VHeader },
 		template: `<v-header/>`
-	}))
-	.add("postlist", () => ({
-		components: { PostList },
-		template: `<post-list :posts='${JSON.stringify(posts)}'/>`
 	}));
 
-storiesOf("Hello world", module)
-	.add("hello world", () => ({
-		components: { HelloWorld },
-		template: "<hello-world msg='Welcome to Your Vue.js + TypeScript App'/>",
 	}));
-
-storiesOf("Button", module)
-	.add("with text", () => ({
-		components: { MyButton },
-		template: "<my-button @click='action'>Hello Button</my-button>",
-		methods: { action: action("clicked") }
-	}))
-	.add("with some emoji", () => ({
-		components: { MyButton },
-		template: "<my-button @click='action'>😀 😎 👍 💯</my-button>",
-		methods: { action: action("clicked") }
-	}));
-
