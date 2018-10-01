@@ -14,8 +14,8 @@ section
 </template>
 
 <script lang="ts">
-import { Prop, Component, Vue } from 'vue-property-decorator';
-import Post from '../components/Post.vue';
+import { Prop, Component, Vue } from "vue-property-decorator";
+import Post from "../components/Post.vue";
 @Component({
 	components: { Post },
 })
@@ -23,6 +23,7 @@ export default class PostList extends Vue {
 	@Prop() private posts: any[];
 
 	public mounted() {
+		// あとで何かができる
 	}
 }
 </script>

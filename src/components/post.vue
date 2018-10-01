@@ -24,7 +24,7 @@ section
 </template>
 
 <script lang="ts">
-import { Prop, Component, Vue } from 'vue-property-decorator';
+import { Prop, Component, Vue } from "vue-property-decorator";
 @Component({
 	components: { Post },
 })

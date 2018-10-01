@@ -6,9 +6,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
+import { Prop, Component, Vue } from "vue-property-decorator";
+import PostList from "../components/PostList.vue";
 @Component({
 	components: {
 		HelloWorld,
