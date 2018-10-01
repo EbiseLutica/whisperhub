@@ -23,7 +23,7 @@ export default class VHeader extends Vue {
 	private view = "home";
 
 	public is(routeName: string) {
-		return routeName === this.$route.name;
+		return this.$route ? (routeName === this.$route.name) : false;
 	}
 }
 </script>
@@ -62,6 +62,7 @@ header.vheader {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		color: #9C27B0;
 		cursor: pointer;
 		&:hover {
 			background: rgba(#424242, 0.1);

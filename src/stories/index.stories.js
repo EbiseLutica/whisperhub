@@ -1,9 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue"
-import { action } from "@storybook/addon-actions"
 
-import MyButton from "../components/MyButton.vue"
-import HelloWorld from "../components/HelloWorld.vue"
 import Post from "../components/Post.vue"
 import PostList from "../components/PostList.vue"
 import VHeader from "../components/VHeader.vue"
@@ -62,7 +59,7 @@ storiesOf("Post", module)
 		:isStarred="${p.isStarred}"
 		timestamp="${p.timestamp}"/>`
 	}))
-	.add("postlist", () => ({
+	.add("post list", () => ({
 		components: { PostList },
 		template: `<post-list :posts='${JSON.stringify(posts)}'/>`
 	}));
@@ -71,6 +68,4 @@ storiesOf("Header", module)
 	.add("header", () => ({
 		components: { VHeader },
 		template: `<v-header/>`
-	}));
-
 	}));
