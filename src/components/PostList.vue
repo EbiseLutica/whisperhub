@@ -1,16 +1,16 @@
 <template lang="pug">
-	section
-		post(v-for="(p, i) in posts",
-			:key="i",
-			:name="p.name",
-			:host="p.host",
-			:isAdmin="p.isAdmin",
-			:isTopicOwner="p.isTopicOwner",
-			:message="p.message",
-			:reactions="p.reactions",
-			:isStarred="p.isStarred",
-			:timestamp="p.timestamp"
-			)
+section
+	post(v-for="(p, i) in posts",
+		:key="i",
+		:name="p.name",
+		:host="p.host",
+		:isAdmin="p.isAdmin",
+		:isTopicOwner="p.isTopicOwner",
+		:message="p.message",
+		:reactions="p.reactions",
+		:isStarred="p.isStarred",
+		:timestamp="p.timestamp"
+		)
 </template>
 
 <script lang="ts">

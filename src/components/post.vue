@@ -1,27 +1,26 @@
 <template lang="pug">
-	section
-		header
-			span.name {{ name }}
-			span.host {{ host }}
-			span.badge.admin(v-if="isAdmin") ADMIN
-			span.badge.topic-owner(v-if="isTopicOwner") &gt;&gt;1
-			span.timestamp {{ timestamp }}
-		article.message {{ message }}
-		footer
-			.reactions
-				.reaction(v-for="r in reactions" :class="{ my: r.isMyReaction }")
-					span {{ r.reactionChar }}
-					span {{ r.reactionCount }}
-			.commands
-				button.reply
-					fa(:icon="['fas', 'reply']", fixed-width)
-				button.reaction
-					fa(:icon="['fas', 'plus']", fixed-width)
-				button.star(@click="star = !star", :class="{ starred : star }")
-					fa(:icon="starIcon", fixed-width)
-				button.other
-					fa(:icon="['fas', 'ellipsis-v']", fixed-width)
-
+section
+	header
+		span.name {{ name }}
+		span.host {{ host }}
+		span.badge.admin(v-if="isAdmin") ADMIN
+		span.badge.topic-owner(v-if="isTopicOwner") &gt;&gt;1
+		span.timestamp {{ timestamp }}
+	article.message {{ message }}
+	footer
+		.reactions
+			.reaction(v-for="r in reactions" :class="{ my: r.isMyReaction }")
+				span {{ r.reactionChar }}
+				span {{ r.reactionCount }}
+		.commands
+			button.reply
+				fa(:icon="['fas', 'reply']", fixed-width)
+			button.reaction
+				fa(:icon="['fas', 'plus']", fixed-width)
+			button.star(@click="star = !star", :class="{ starred : star }")
+				fa(:icon="starIcon", fixed-width)
+			button.other
+				fa(:icon="['fas', 'ellipsis-v']", fixed-width)
 </template>
 
 <script lang="ts">
