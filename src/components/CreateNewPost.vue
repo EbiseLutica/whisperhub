@@ -4,9 +4,10 @@
 		fa(fas icon="plus")
 	transition(name="fade")
 		window(title="New Post", v-if="isVisible", @closebuttonclick="isVisible = false")
-			textarea(v-model="message" :placeholder="placeholder")
-			.commands
-				button.submit(@click="post()") Post
+			.viewport
+				textarea(v-model="message" :placeholder="placeholder")
+				.commands
+					button.submit(@click="post()") Post
 </template>
 
 <script lang="ts">
@@ -58,12 +59,24 @@ button.fab {
 	bottom: 2rem;
 }
 
+.viewport {
+	margin-top: 1rem;
+}
+
 textarea {
 	width: 480px;
 	height: 96px;
-	border: none;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+	border: solid 2px #7f7f7f;
+	border-radius: .3rem;
+	padding: 1rem;
+	font-size: 1rem;
+	outline: none;
+	resize: none;
+	background-color: rgba(white, 0.3);
+
+	&:focus {
+		border-color: $accent;
+	}
 }
 
 .commands {
