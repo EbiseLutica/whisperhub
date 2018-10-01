@@ -60,6 +60,7 @@ interface ReactionViewModel {
 $white: #fafafa;
 $black: #212121;
 $gray: #9E9E9E;
+$shadow: #a0a0a0;
 $accent: #9C27B0;
 $accent-text: $white;
 $red: #f44336;
@@ -98,7 +99,7 @@ header {
 		border-radius: 4px;
 		border: none;
 		font-size: 0.75rem;
-		padding: 3px;
+		padding: 3px 6px;
 		align-self: center;
 		justify-self: center;
 		&.admin {
@@ -119,12 +120,15 @@ header {
 
 .message {
 	padding: 1rem 0 0 1rem;
-	font-feature-settings: "palt";
+	font-feature-settings: "pkna";
+	line-height: 2em;
+	font-size: 14pt;
+	font-family:　"ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", "游明朝 Medium", "Yu Mincho Medium", "游明朝体", "YuMincho", "ＭＳ 明朝", Century, serif !important;
 }
 
 .reactions {
-	padding: 0.4rem 0 0 1rem;
-	margin: 0.2rem 0 0 0.4rem;
+	padding: 0.4rem 0 0.4rem 1rem;
+	border-bottom: dotted 1px $shadow;
 
 	.reaction {
 		display: inline-block;
@@ -147,11 +151,14 @@ header {
 }
 
 .commands {
+	padding: 1rem 0 0 1rem;
 	button {
 		border: none;
 		background: none;
 		display: inline-block;
 		margin-right: 1rem;
+		min-width: 4rem;
+		font-size: 1.2rem;
 		outline: none;
 
 		&:hover {
