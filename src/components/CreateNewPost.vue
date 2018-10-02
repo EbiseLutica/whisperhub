@@ -7,36 +7,31 @@
 			.viewport
 				textarea(v-model="message" :placeholder="placeholder")
 				.commands
-					button.submit(@click="post()") Post
+					button.submit(@click="postButtonPressed()") Post
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue, Emit } from "vue-property-decorator";
 import Window from "../components/Window.vue";
+import { mapActions } from 'vuex';
 @Component({
 	components: { Window },
+	methods: {
+		 ...mapActions([
+			"post"
+		]),
+	},
 })
 export default class CreateNewPost extends Vue {
 	private isVisible = false;
 
-	private _mes: string;
+	private message: string;
 
-	@Prop() private value!: string;
-
-	@Emit()
-	public input(value: string) {}
-
-	private get message(): string {
-		return this.value;
-	}
-
-	private set message(value: string) {
-		this.input(value);
-	}
 
 	private placeholder = "何を書き込む？"
 
-	public post() {
+	public postButtonPressed() {
+		this.post({ message: this.message });
 		this.isVisible = false;
 	}
 

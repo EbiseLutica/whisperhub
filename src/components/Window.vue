@@ -74,7 +74,7 @@ export default class Window extends Vue {
 		align-items: center;
 		justify-content: center;
 		height: 2rem;
-		background: rgba(#777, 0.3);
+		background: rgba(#777, 0.5);
 		backdrop-filter: blur(8px);
 		font-size: 1.2rem;
 		cursor: move;
@@ -91,7 +91,7 @@ export default class Window extends Vue {
 	}
 	.body {
 		margin: auto;
-		background: rgba(#fafafa, 0.6);
+		background: rgba(#fafafa, 0.7);
 		backdrop-filter: blur(8px);
 		padding: 0.5rem 2rem;
 	}

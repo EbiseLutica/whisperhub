@@ -17,7 +17,7 @@ section
 				fa(:icon="['fas', 'reply']", fixed-width)
 			button.reaction
 				fa(:icon="['fas', 'plus']", fixed-width)
-			button.star(@click="star = !star", :class="{ starred : star }")
+			button.star(@click="starClicked()", :class="{ starred : star }")
 				fa(:icon="starIcon", fixed-width)
 			button.other
 				fa(:icon="['fas', 'ellipsis-v']", fixed-width)
@@ -25,11 +25,19 @@ section
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
+import ReactionViewModel from "../interfaces/ReactionViewModel";
+import { mapActions } from "vuex";
 @Component({
 	components: { Post },
+	methods: {
+		...mapActions([
+			"setStar",
+		])
+	}
 })
 export default class Post extends Vue {
 	@Prop() private name: string;
+	@Prop() private id: string;
 	@Prop() private host: string;
 	@Prop() private isAdmin: boolean;
 	@Prop() private isTopicOwner: boolean;
@@ -44,13 +52,15 @@ export default class Post extends Vue {
 		this.star = this.isStarred;
 	}
 
-	public get starIcon() { return [this.star ? "fas" : "far", "star" ]; }
-}
+	public starClicked() {
+		this.star = !this.star;
+		this.setStar({
+			id: this.id,
+			isStarred: this.star,
+		});
+	}
 
-interface ReactionViewModel {
-	reactionChar: string;
-	reactionCount: number;
-	isMyReaction: boolean;
+	public get starIcon() { return [this.star ? "fas" : "far", "star" ]; }
 }
 </script>
 
@@ -77,6 +87,7 @@ section {
 	border: none;
 	padding: 1rem;
 	border: 1px solid $gray;
+	transition: all 0.2s ease;
 }
 
 header {
