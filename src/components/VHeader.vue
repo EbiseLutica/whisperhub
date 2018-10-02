@@ -36,8 +36,11 @@ header.vheader {
 	left: 0;
 	right: 0;
 	height: 4rem;
-	background: rgba(#424242, 0.5);
-	backdrop-filter: blur(8px);
+	@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+		background: rgba(#424242, 0.8);
+		backdrop-filter: blur(8px);
+	}
+	background: rgba(#424242, 0.9);
 	box-shadow: 0 0 4px #0a0a0a;
 	color: #FAFAFA;
 	align-items: stretch;
@@ -52,7 +55,7 @@ header.vheader {
 		justify-content: center;
 		img {
 			height: 1.8rem;
-			filter: drop-shadow(0 0 4px #fafafa);
+			filter: drop-shadow(0 0 4px #424242);
 		}
 	}
 
@@ -62,14 +65,14 @@ header.vheader {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: #9C27B0;
+		color: #AB47BC;
 		cursor: pointer;
 		&:hover {
 			background: rgba(#424242, 0.1);
 		}
 		&.active {
 			border: none;
-			border-bottom: 6px solid #9C27B0;
+			border-bottom: 6px solid #AB47BC;
 			background: rgba(#424242, 0.3);
 		}
 		transition: all 0.2s ease;

@@ -74,13 +74,13 @@ export default class Window extends Vue {
 		align-items: center;
 		justify-content: center;
 		height: 2rem;
-		background: rgba(#777, 0.5);
-		backdrop-filter: blur(8px);
+		background: rgba(#000, 0.3);
 		font-size: 1.2rem;
 		cursor: move;
 
 		.title {
 			color: #0a0a0a;
+			text-shadow: 0 0 6px #fafafa;
 			user-select: none;
 		}
 		.close {
@@ -91,10 +91,15 @@ export default class Window extends Vue {
 	}
 	.body {
 		margin: auto;
-		background: rgba(#fafafa, 0.7);
-		backdrop-filter: blur(8px);
+
 		padding: 0.5rem 2rem;
 	}
+
+	@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+		background: rgba(#fafafa, 0.5);
+		backdrop-filter: blur(8px);
+	}
+	background: #fafafa;
 }
 </style>
 
