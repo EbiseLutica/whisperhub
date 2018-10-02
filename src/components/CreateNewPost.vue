@@ -40,6 +40,8 @@ export default class CreateNewPost extends Vue {
 
 <style lang="scss" scoped>
 $accent: #9C27B0;
+$accent-light: #BA68C8;
+$accent-dark: #6A1B9A;
 button.fab {
 	color: #fafafa;
 	font-size: 16px;
@@ -52,6 +54,17 @@ button.fab {
 	position: fixed;
 	right: 2rem;
 	bottom: 2rem;
+	outline: none;
+	transition: all 0.2s ease;
+	&:hover {
+		box-shadow: 0 0 2rem #000;
+		background: $accent-light;
+	}
+
+	&:active {
+		box-shadow: 0 0 0.4rem #000;
+		background: $accent-dark;
+	}
 }
 
 .viewport {
