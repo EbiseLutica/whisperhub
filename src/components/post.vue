@@ -32,8 +32,8 @@ import { mapActions } from "vuex";
 	methods: {
 		...mapActions([
 			"setStar",
-		])
-	}
+		]),
+	},
 })
 export default class Post extends Vue {
 	@Prop() private name: string;

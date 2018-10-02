@@ -23,16 +23,16 @@ export default class Window extends Vue {
 	private isDragging = false;
 
 	public down(e: MouseEvent) {
-		if (e.button != 0) return;
+		if (e.button !== 0) { return; }
 		this.isDragging = true;
 	}
 	public up(e: MouseEvent) {
-		if (e.button != 0) return;
+		if (e.button !== 0) { return; }
 		this.isDragging = false;
 	}
 
 	public move(e: MouseEvent) {
-		if (e.button != 0 || !this.isDragging) return;
+		if (e.button !== 0 || !this.isDragging) { return; }
 
 		this.x += e.movementX;
 		this.y += e.movementY;
@@ -43,13 +43,13 @@ export default class Window extends Vue {
 		this.$emit("closebuttonclick");
 	}
 
-	mounted() {
+	public mounted() {
 		window.addEventListener("mousemove", this.move);
 		window.addEventListener("mouseup", this.up);
 		this.updateStyle();
 	}
 
-	updateStyle() {
+	public updateStyle() {
 		this.$el.style.width = this.width;
 		this.$el.style.height = this.height;
 		this.$el.style.left = `${this.x}px`;

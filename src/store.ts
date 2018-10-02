@@ -8,7 +8,7 @@ Vue.use(Vuex);
 
 const words = [ "おはよう", "ねむい", "おいしい", "ねこ", "テスト" ];
 
-function createDummies() : IPost[] {
+function createDummies(): IPost[] {
 	return Array<IPost>(Math.floor(Math.random() * 1000)).fill(undefined).map((_) => Object.assign({}, {
 		name: "名無しさん",
 		id: UUID(),

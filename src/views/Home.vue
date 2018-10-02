@@ -10,14 +10,14 @@ import { mapState, mapActions } from "vuex";
 @Component({
 	components: { PostList },
 	computed: {
-		...mapState(["localTimeline"])
+		...mapState(["localTimeline"]),
 	},
 	methods: {
 		...mapActions([
 			"fetchGTL",
 			"fetchLTL",
 		]),
-	}
+	},
 })
 export default class Home extends Vue {
 	private mounted() {

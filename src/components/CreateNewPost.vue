@@ -13,12 +13,12 @@
 <script lang="ts">
 import { Prop, Component, Vue, Emit } from "vue-property-decorator";
 import Window from "../components/Window.vue";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 @Component({
 	components: { Window },
 	methods: {
 		 ...mapActions([
-			"post"
+			"post",
 		]),
 	},
 })
@@ -28,7 +28,7 @@ export default class CreateNewPost extends Vue {
 	private message: string;
 
 
-	private placeholder = "何を書き込む？"
+	private placeholder = "何を書き込む？";
 
 	public postButtonPressed() {
 		this.post({ message: this.message });

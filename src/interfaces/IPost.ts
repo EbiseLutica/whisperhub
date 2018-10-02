@@ -7,7 +7,7 @@ export default interface IPost {
 	host?: string;
 	isAdmin: boolean;
 	isTopicOwner: boolean;
-	isMyPost: boolean;
+	isMyPost?: boolean;
 	message: string;
 	reactions: ReactionViewModel[];
 	isStarred: boolean;
