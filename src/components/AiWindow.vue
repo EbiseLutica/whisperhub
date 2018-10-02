@@ -5,7 +5,7 @@ window(title="藍ちゃん")
 
 <script lang="ts">
 import { Prop, Component, Vue, Emit } from "vue-property-decorator";
-import Window from '../components/Window.vue';
+import Window from "../components/Window.vue";
 @Component({
 	components: { Window },
 })
