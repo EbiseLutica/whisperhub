@@ -1,6 +1,8 @@
 <template lang="pug">
 .window
 	.header(@mousedown="down($event)")
+		.icon
+			fa(:icon="icon")
 		.title {{ title }}
 		.close(@click="onClose()")
 			fa(fas, icon="times")
@@ -15,6 +17,7 @@ import { Prop, Component, Vue } from "vue-property-decorator";
 })
 export default class Window extends Vue {
 	@Prop() private title: string;
+	@Prop() private icon: string[];
 	@Prop() private width;
 	@Prop() private height;
 	private x = 192;
@@ -78,11 +81,13 @@ export default class Window extends Vue {
 		font-size: 1.2rem;
 		cursor: move;
 
-		.title {
+		.icon, .title {
 			color: #0a0a0a;
 			text-shadow: 0 0 6px #fafafa;
 			user-select: none;
+			margin-right: 1rem;
 		}
+
 		.close {
 			margin-left: auto;
 			cursor: pointer;

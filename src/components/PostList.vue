@@ -3,15 +3,7 @@
 	transition-group(name="list", tag="div")
 		post(v-for="(p, i) in posts",
 			:key="p.id",
-			:name="p.name",
-			:host="p.host",
-			:id="p.id",
-			:isAdmin="p.isAdmin",
-			:isTopicOwner="p.isTopicOwner",
-			:message="p.message",
-			:reactions="p.reactions",
-			:isStarred="p.isStarred",
-			:timestamp="p.timestamp"
+			:post="p",
 			)
 </template>
 
