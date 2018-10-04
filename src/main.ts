@@ -9,6 +9,9 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import PrettyCheckbox from "pretty-checkbox-vue";
+
+Vue.use(PrettyCheckbox);
 
 library.add(fas);
 library.add(far);
