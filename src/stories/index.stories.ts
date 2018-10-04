@@ -50,15 +50,7 @@ posts.forEach((v, i) => {
 storiesOf("Post", module)
 	.add("post", () => ({
 		components: { Post },
-		template: `<post
-		name="${p.name}"
-		host="${p.host}"
-		:isAdmin="${p.isAdmin}"
-		:isTopicOwner="${p.isTopicOwner}"
-		message="${p.message}"
-		:reactions='${JSON.stringify(p.reactions)}'
-		:isStarred="${p.isStarred}"
-		timestamp="${p.timestamp}"/>`
+		template: `<post post='`JSON.stringify(p)`'/>`
 	}))
 	.add("post list", () => ({
 		components: { PostList },
