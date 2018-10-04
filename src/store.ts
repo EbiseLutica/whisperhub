@@ -60,6 +60,55 @@ export default new Vuex.Store({
 		setStar(state, payload: any) {
 			state.localTimeline.find((p) => p.id === payload.id).isStarred = payload.isStarred;
 		},
+		addReaction(state, payload: any) {
+			const p = state.localTimeline.find((p) => p.id === payload.postId);
+			// 該当ポストがなければ抜ける
+			if (!p) { return; }
+			// リアクション配列がなければ新規作成
+			if (!p.reactions) { p.reactions = []; }
+			// リアクションの反映
+			const reaction = p.reactions.find((r) => r.reactionChar === payload.reaction);
+			// 押していれば抜ける
+			if (reaction.isMyReaction) {
+				return;
+			}
+			// 存在しなければ作る
+			if (!reaction) {
+				p.reactions.push({
+					reactionChar: payload.reaction,
+					reactionCount: 1,
+					isMyReaction: true,
+				});
+			}
+			else {
+				reaction.reactionCount++;
+				reaction.isMyReaction = true;
+			}
+		},
+		removeReaction(state, payload: any) {
+			const p = state.localTimeline.find((p) => p.id === payload.postId);
+			// 該当ポストがなければ抜ける
+			if (!p || !p.reactions) { return; }
+			// リアクションの反映
+			const reaction = p.reactions.find((r) => r.reactionChar === payload.reaction);
+			// 押していなければ抜ける
+			if (!reaction.isMyReaction) {
+				return;
+			}
+			// 存在しなければ抜ける
+			if (!reaction) {
+				return;
+			}
+			else {
+				reaction.reactionCount--;
+				reaction.isMyReaction = false;
+
+				// リアクションがなくなったら消す
+				if (reaction.reactionCount < 1) {
+					p.reactions = p.reactions.filter((r) => r.reactionChar !== payload.reaction);
+				}
+			}
+		}
 
 	},
 	actions: {
@@ -74,6 +123,12 @@ export default new Vuex.Store({
 		},
 		setStar(ctx, payload) {
 			ctx.commit("setStar", payload);
+		},
+		addReaction(ctx, payload) {
+			ctx.commit("addReaction", payload);
+		},
+		removeReaction(ctx, payload) {
+			ctx.commit("removeReaction", payload);
 		},
 	},
 });

@@ -6,10 +6,10 @@ section
 		span.badge.admin(v-if="post.isAdmin") ADMIN
 		span.badge.topic-owner(v-if="post.isTopicOwner") &gt;&gt;1
 		span.timestamp {{ post.timestamp }}
-	article.message {{ post.message }}
+	article.message(v-html="post.message")
 	footer
 		.reactions
-			.reaction(v-for="r in post.reactions" :class="{ my: r.isMyReaction }")
+			.reaction(v-for="r in post.reactions", :class="{ my: r.isMyReaction }", @click="toggleReaction(r)")
 				span {{ r.reactionChar }}
 				span {{ r.reactionCount }}
 		.commands
@@ -17,7 +17,7 @@ section
 				fa(:icon="['fas', 'reply']", fixed-width)
 			button.reaction
 				fa(:icon="['fas', 'plus']", fixed-width)
-			button.star(@click="starClicked()", :class="{ starred : post.IsStarred }")
+			button.star(@click="starClicked()", :class="{ starred: post.IsStarred }")
 				fa(:icon="starIcon", fixed-width)
 			button.other
 				fa(:icon="['fas', 'ellipsis-v']", fixed-width)
@@ -26,12 +26,15 @@ section
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import ReactionViewModel from "../interfaces/ReactionViewModel";
+import IPost from "../interfaces/IPost";
 import { mapActions } from "vuex";
 @Component({
 	components: { Post },
 	methods: {
 		...mapActions([
 			"setStar",
+			"addReaction",
+			"removeReaction",
 		]),
 	},
 })
@@ -39,10 +42,20 @@ export default class Post extends Vue {
 	@Prop() private post: IPost;
 
 	public starClicked() {
-		this.post.isStarred = !this.post.isStarred;
 		this.setStar({
-			id: this.id,
-			isStarred: this.post.isStarred,
+			id: this.post.id,
+			isStarred: !this.post.isStarred,
+		});
+	}
+
+	public toggleReaction(r: ReactionViewModel) {
+		const func = this.addReaction;
+		if (r.isMyReaction) {
+			func = this.removeReaction;
+		}
+		func({
+			postId: this.post.id,
+			reaction: r.reactionChar,
 		});
 	}
 
