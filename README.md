@@ -1,8 +1,10 @@
 ﻿# WhisperHub
 
+[日本語](README-ja.md) ・ English
+
 ### A **masked** micro-blogging social media service 🎭
 
-WhisperHub is a open-source micro-blogging service written in typescript. This is more than just one.
+WhisperHub is a open-source micro-blogging service written in typescript. However, it's not just one.
 
 ## Anonymous User
 
@@ -10,9 +12,36 @@ In WhisperHub, you don't have to set your user's name. All posts are published w
 
 See [Wiki (In Japanese)](https://wiki.citringo.net/doku.php?id=whisperhub) to get more information.
 
+## Requirement
+
+- node
+- npm or yarn
+- mongodb
+
+## To Build
+
+``` shell
+git clone https://github.com/xeltica/whisperhub
+cd whisperhub
+
+# install all deps
+npm i
+# and run it
+npm run serve
+# ...or run a storybook
+npm run books
+
+# if you want to use yarn
+yarn
+yarn serve
+yarn books
+```
+
 ## Contributing
 
-I'm just preparing now. Please wait...
+If you want to report bugs, improvements, or new features to me: [Issues](/xeltica/whisperhub/issues)
+
+If you want me to merge your code: [Pull Requests](/xeltica/whisperhub/pulls)
 
 ## LICENSE
 
