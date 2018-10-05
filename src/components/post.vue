@@ -49,7 +49,7 @@ export default class Post extends Vue {
 	}
 
 	public toggleReaction(r: ReactionViewModel) {
-		const func = this.addReaction;
+		let func = this.addReaction;
 		if (r.isMyReaction) {
 			func = this.removeReaction;
 		}

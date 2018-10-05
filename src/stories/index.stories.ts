@@ -50,7 +50,7 @@ posts.forEach((v, i) => {
 storiesOf("Post", module)
 	.add("post", () => ({
 		components: { Post },
-		template: `<post post='`JSON.stringify(p)`'/>`
+		template: `<post post='${JSON.stringify(p)}'/>`
 	}))
 	.add("post list", () => ({
 		components: { PostList },
