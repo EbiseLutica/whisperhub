@@ -8,14 +8,16 @@ header.vheader
 		fa(fas, icon="folder", fixed-width)
 	router-link.command(tag="a", to="/Global", :class="{ active: is('global') }")
 		fa(fas, icon="globe", fixed-width)
-	router-link.command(tag="a", to="/Messaging", :class="{ active: is('messaging') }")
-		fa(fas, icon="comment", fixed-width)
+	a.command(@click="spawnMessagingWindow()")
+		fa(fas, icon="envelope", fixed-width)
 
 
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
+import App from "../App.vue";
+import MessagingWindow from "../components/MessagingWindow.vue";
 @Component({
 	components: { VHeader },
 })
@@ -25,11 +27,16 @@ export default class VHeader extends Vue {
 	public is(routeName: string) {
 		return this.$route ? (routeName === this.$route.name) : false;
 	}
+
+	public spawnMessagingWindow() {
+		App.windows.open(MessagingWindow);
+	}
 }
 </script>
 
 <style lang="scss">
 header.vheader {
+$accent-light: #BA68C8;
 	position: fixed;
 	display: flex;
 	top: 0;
@@ -65,14 +72,14 @@ header.vheader {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: #AB47BC;
+		color: $accent-light;
 		cursor: pointer;
 		&:hover {
 			background: rgba(#424242, 0.1);
 		}
 		&.active {
 			border: none;
-			border-bottom: 6px solid #AB47BC;
+			border-bottom: 6px solid $accent-light;
 			background: rgba(#424242, 0.3);
 		}
 		transition: all 0.2s ease;
