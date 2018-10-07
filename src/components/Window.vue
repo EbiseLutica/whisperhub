@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
+import App from "../App.vue";
 @Component({
 	components: { Window },
 })
@@ -43,7 +44,11 @@ export default class Window extends Vue {
 	}
 
 	public onClose() {
-		this.$emit("closebuttonclick");
+		let args = { cancel: false };
+		this.$emit("closebuttonclick", args);
+
+		if (args.cancel) { return; }
+		App.windows.close(this);
 	}
 
 	public mounted() {

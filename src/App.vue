@@ -9,12 +9,16 @@
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import VHeader from "./components/VHeader.vue";
+import WindowManager from "./helpers/WindowManager";
 import CreateNewPost from "./components/CreateNewPost.vue";
 @Component({
 	components: { VHeader, CreateNewPost },
 })
 export default class App extends Vue {
+	static windows : WindowManager;
+
 	public mounted() {
+		App.windows = new WindowManager(this);
 	}
 }
 </script>
