@@ -9,7 +9,7 @@
 						 @keydown.ctrl.enter.exact="postButtonPressed($event)",
 						 @keydown.meta.enter.exact="postButtonPressed($event)")
 				.commands
-					button.submit(@click="postButtonPressed($event)",:disabled="!canPost") 投稿する
+					ui-button(@click="postButtonPressed($event)",:disabled="!canPost", mode="primary") 投稿する
 					span.length(:class="{ error: !canPost }") {{ maxLength - message.length }}
 </template>
 
@@ -17,9 +17,10 @@
 import { Prop, Component, Vue, Emit, Watch } from "vue-property-decorator";
 import App from "../App.vue";
 import Window from "../components/Window.vue";
+import UiButton from "../ui/UiButton.vue";
 import { mapActions } from "vuex";
 @Component({
-	components: { Window },
+	components: { Window, UiButton },
 	methods: {
 		 ...mapActions([
 			"post",
@@ -113,29 +114,7 @@ textarea {
 		transition: all 0.2s ease;
 	}
 
-	button.submit {
-		width: 6rem;
-		height: 2rem;
-		background: #2196F3;
-		color: #fafafa;
-		font-size: 1.2rem;
-		border: none;
-		box-shadow: 0 0 1rem black;
 
-		&:hover {
-			box-shadow: 0 0 1.4rem black;
-		}
-		&:active {
-			box-shadow: 0 0 0.4rem black;
-		}
-
-		&:disabled {
-			background: #888;
-			box-shadow: none;
-		}
-
-		transition: all 0.2s ease;
-	}
 	transition: all 0.4s ease;
 }
 .fade-enter-active, .fade-leave-active {

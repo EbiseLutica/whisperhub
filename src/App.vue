@@ -1,19 +1,12 @@
 <template lang="pug">
 #app
-	v-header
-	.container
-		router-view
-	create-new-post
+	router-view
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import VHeader from "./components/VHeader.vue";
 import WindowManager from "./helpers/WindowManager";
-import CreateNewPost from "./components/CreateNewPost.vue";
-@Component({
-	components: { VHeader, CreateNewPost },
-})
+@Component({})
 export default class App extends Vue {
 	static windows : WindowManager;
 

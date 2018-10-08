@@ -31,6 +31,8 @@ export default new Vuex.Store({
 		localTimeline: Array<IPost>(),
 		globalTimeline: Array<IPost>(),
 		threads: Array<IThread>(),
+		isSignedIn: false,
+		userName: ""
 	},
 	mutations: {
 		fetchLTL(state) {
@@ -108,8 +110,11 @@ export default new Vuex.Store({
 					p.reactions = p.reactions.filter((r) => r.reactionChar !== payload.reaction);
 				}
 			}
-		}
-
+		},
+		signIn(state, payload: any) {
+			state.isSignedIn = true;
+			state.userName = payload.name;
+		},
 	},
 	actions: {
 		fetchLTL({ commit }) {
@@ -130,5 +135,15 @@ export default new Vuex.Store({
 		removeReaction(ctx, payload) {
 			ctx.commit("removeReaction", payload);
 		},
+		signIn(ctx, payload) {
+			ctx.commit("signIn", payload);
+		},
 	},
+	getters: {
+		localTimeline: s => s.localTimeline,
+		globalTimeline: s => s.globalTimeline,
+		threads: s => s.threads,
+		userName: s => s.userName,
+		isSignedIn: s => s.isSignedIn,
+	}
 });
