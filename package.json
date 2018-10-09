@@ -17,6 +17,8 @@
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "@storybook/vue": "^3.4.11",
     "babel-loader": "^8.0.4",
+    "emoji-mart-vue": "^2.6.4",
+    "node-emoji": "^1.8.1",
     "pretty-checkbox-vue": "^1.1.9",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",

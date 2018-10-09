@@ -4758,6 +4758,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emoji-mart-vue@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/emoji-mart-vue/-/emoji-mart-vue-2.6.4.tgz#b7ca406368566323d8160075bf3ac7f315b956f8"
+  integrity sha512-spiCyVqt87vd3H+INV3ZbqvseASuIKf7Kszx9uDA7QgDEWlxfcUaTP8s80DStzzttcczR4vFpnAoeI1ebBmStA==
+
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
@@ -7140,6 +7145,11 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
+lodash.toarray@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.toarray/-/lodash.toarray-4.4.0.tgz#24c4bfcd6b2fba38bfd0594db1179d8e9b656561"
+  integrity sha1-JMS/zWsvuji/0FlNsRedjptlZWE=
+
 lodash.transform@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.transform/-/lodash.transform-4.6.0.tgz#12306422f63324aed8483d3f38332b5f670547a0"
@@ -7594,6 +7604,13 @@ no-case@^2.2.0:
   integrity sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
   dependencies:
     lower-case "^1.1.1"
+
+node-emoji@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.8.1.tgz#6eec6bfb07421e2148c75c6bba72421f8530a826"
+  integrity sha512-+ktMAh1Jwas+TnGodfCfjUbJKoANqPaJFN0z0iqh41eqD8dvguNzcitVSBSVK1pidz0AqGbLKcoVuVLRVZ/aVg==
+  dependencies:
+    lodash.toarray "^4.4.0"
 
 node-fetch@^1.0.1:
   version "1.7.3"
@@ -8896,12 +8913,14 @@ pretty-bytes@^4.0.2:
 pretty-checkbox-vue@^1.1.9:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/pretty-checkbox-vue/-/pretty-checkbox-vue-1.1.9.tgz#2d4bfc7f20c54a0e7b94b3d205641dbf8f390fb4"
+  integrity sha512-45HOanzF+BUTD5prwCoNrtEFYVzWtASTIIPtPQxGCajC097pFD/9mbyjEjoTsu8Tk4/rSyA7RNk6JpFWVHpLag==
   dependencies:
     pretty-checkbox "^3.0.3"
 
 pretty-checkbox@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/pretty-checkbox/-/pretty-checkbox-3.0.3.tgz#d49c8013a8fc08ee0c2d6ebde453464bfdbc428e"
+  integrity sha1-1JyAE6j8CO4MLW695FNGS/28Qo4=
 
 pretty-error@^2.0.2:
   version "2.1.1"

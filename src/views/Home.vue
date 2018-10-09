@@ -1,16 +1,22 @@
 <template lang="pug">
-	post-list(:posts="localTimeline")
+#root
+	v-header
+	.container
+		post-list(:posts="localTimeline")
+	create-new-post
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import PostList from "../components/PostList.vue";
 import IPost from "../interfaces/IPost";
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import VHeader from "../components/VHeader.vue";
+import CreateNewPost from "../components/CreateNewPost.vue";
 @Component({
-	components: { PostList },
+	components: { PostList, VHeader, CreateNewPost },
 	computed: {
-		...mapState(["localTimeline"]),
+		...mapGetters(["localTimeline"]),
 	},
 	methods: {
 		...mapActions([
