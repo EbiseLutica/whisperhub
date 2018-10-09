@@ -131,6 +131,7 @@ header {
 .message {
 	padding: 1rem 0 0 1rem;
 	font-feature-settings: "pkna";
+	white-space: pre;
 	line-height: 2em;
 	font-size: 14pt;
 	font-family:　"ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", "游明朝 Medium", "Yu Mincho Medium", "游明朝体", "YuMincho", "ＭＳ 明朝", Century, serif !important;
