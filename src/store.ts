@@ -9,13 +9,14 @@ Vue.use(Vuex);
 const words = [ "おはよう", "ねむい", "おいしい", "ねこ", "テスト" ];
 
 function createDummies(): IPost[] {
-	return Array<IPost>(Math.floor(Math.random() * 1000)).fill(undefined).map((_) => Object.assign({}, {
+	return Array<IPost>(Math.floor(Math.random() * 50)).fill(undefined).map((_) => Object.assign({}, {
 		name: "風吹けば名無し",
 		id: UUID(),
 		host: "@whisperhub.social",
 		isAdmin: Math.random() * 10 < 5,
 		isTopicOwner: Math.random() * 10 < 5,
 		message: words[Math.floor(Math.random() * words.length)],
+		isRootOfThread: Math.random() * 10 < 5,
 		reactions: [
 			{ reactionChar: "🤔", reactionCount: 10, isMyReaction: false },
 			{ reactionChar: "👍", reactionCount: 3, isMyReaction: true },
@@ -30,9 +31,9 @@ export default new Vuex.Store({
 	state: {
 		localTimeline: Array<IPost>(),
 		globalTimeline: Array<IPost>(),
-		threads: Array<IThread>(),
 		isSignedIn: false,
 		userName: "",
+		tabMode: "ltl",
 	},
 	mutations: {
 		fetchLTL(state) {
@@ -52,6 +53,8 @@ export default new Vuex.Store({
 				host: "@whisperhub.social",
 				isAdmin: false,
 				isTopicOwner: false,
+				// undefined の場合falseにする
+				isRootOfThread: !!post.isRootOfThread,
 				reactions: [],
 				isStarred: false,
 				timestamp: "たった今",
@@ -111,7 +114,21 @@ export default new Vuex.Store({
 		},
 		signIn(state, payload: any) {
 			state.isSignedIn = true;
-			state.userName = payload.name;
+			state.userName = payload.userName;
+		},
+		setTabMode(state, payload: any) {
+			const normalized = payload.tabMode ? payload.tabMode.toLowerCase() : "";
+			switch (normalized) {
+				case "ltl":
+				case "threads":
+				case "gtl":
+					state.tabMode = normalized;
+					break;
+				default:
+					// tslint:disable-next-line:no-console
+					console.error(`BUG: "${payload.tabMode}" is invalid tab-mode!!`);
+					break;
+			}
 		},
 	},
 	actions: {
@@ -136,12 +153,16 @@ export default new Vuex.Store({
 		signIn(ctx, payload) {
 			ctx.commit("signIn", payload);
 		},
+		setTabMode(ctx, payload) {
+			ctx.commit("setTabMode", payload);
+		},
 	},
 	getters: {
 		localTimeline: (s) => s.localTimeline,
 		globalTimeline: (s) => s.globalTimeline,
-		threads: (s) => s.threads,
+		threads: (s) => s.localTimeline.filter((p) => p.isRootOfThread),
 		userName: (s) => s.userName,
 		isSignedIn: (s) => s.isSignedIn,
+		tabMode: (s) => s.tabMode,
 	},
 });

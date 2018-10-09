@@ -2,14 +2,16 @@
 header.vheader
 	.title
 		img(src="../assets/title.svg")
-	router-link.command(tag="a", to="/", :class="{ active: is('home') }")
+	a.command(@click="$store.commit('setTabMode', { tabMode: 'ltl' })", :class="{ active: is('ltl') }")
 		fa(fas, icon="home", fixed-width)
-	router-link.command(tag="a", to="/Thread", :class="{ active: is('thread') }")
+	a.command(@click="$store.commit('setTabMode', { tabMode: 'threads' })", :class="{ active: is('threads') }")
 		fa(fas, icon="folder", fixed-width)
-	router-link.command(tag="a", to="/Global", :class="{ active: is('global') }")
+	a.command(@click="$store.commit('setTabMode', { tabMode: 'gtl' })", :class="{ active: is('gtl') }")
 		fa(fas, icon="globe", fixed-width)
 	a.command(@click="spawnMessagingWindow()")
 		fa(fas, icon="envelope", fixed-width)
+	.right
+		a(href="#").user {{ $store.getters.userName }}
 
 
 </template>
@@ -24,8 +26,8 @@ import MessagingWindow from "../components/MessagingWindow.vue";
 export default class VHeader extends Vue {
 	private view = "home";
 
-	public is(routeName: string) {
-		return this.$route ? (routeName === this.$route.name) : false;
+	public is(tabMode: string) {
+		return this.$store.getters.tabMode === tabMode;
 	}
 
 	public spawnMessagingWindow() {
@@ -84,6 +86,28 @@ $accent-light: #BA68C8;
 		}
 		transition: all 0.2s ease;
 	}
+
+	.right {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		.user {
+			font-size: 1.3rem;
+			text-decoration: none;
+			color: #fafafa;
+			&:hover, &:active {
+				text-decoration: underline;
+			}
+
+			&:hover {
+				color: #d8d8d8;
+			}
+			&:active {
+				color: #e5e5e5;
+			}
+		}
+	}
+
 	transition: all 0.2s ease;
 }
 </style>

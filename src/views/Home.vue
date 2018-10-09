@@ -2,7 +2,9 @@
 #root
 	v-header
 	.container
-		post-list(:posts="localTimeline")
+		post-list(v-if="$store.getters.tabMode === 'ltl'", :posts="localTimeline")
+		post-list(v-if="$store.getters.tabMode === 'gtl'", :posts="globalTimeline")
+		threads-list(v-if="$store.getters.tabMode === 'threads'")
 	create-new-post
 </template>
 
@@ -13,10 +15,14 @@ import IPost from "../interfaces/IPost";
 import { mapGetters, mapActions } from "vuex";
 import VHeader from "../components/VHeader.vue";
 import CreateNewPost from "../components/CreateNewPost.vue";
+import ThreadsList from "../components/ThreadsList.vue";
 @Component({
-	components: { PostList, VHeader, CreateNewPost },
+	components: { PostList, VHeader, CreateNewPost, ThreadsList },
 	computed: {
-		...mapGetters(["localTimeline"]),
+		...mapGetters([
+			"localTimeline",
+			"globalTimeline",
+		]),
 	},
 	methods: {
 		...mapActions([
@@ -28,6 +34,7 @@ import CreateNewPost from "../components/CreateNewPost.vue";
 export default class Home extends Vue {
 	private mounted() {
 		(this as any).fetchLTL();
+		(this as any).fetchGTL();
 	}
 }
 </script>
