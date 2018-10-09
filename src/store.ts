@@ -10,7 +10,7 @@ const words = [ "おはよう", "ねむい", "おいしい", "ねこ", "テス�
 
 function createDummies(): IPost[] {
 	return Array<IPost>(Math.floor(Math.random() * 1000)).fill(undefined).map((_) => Object.assign({}, {
-		name: "名無しさん",
+		name: "風吹けば名無し",
 		id: UUID(),
 		host: "@whisperhub.social",
 		isAdmin: Math.random() * 10 < 5,
@@ -47,7 +47,7 @@ export default new Vuex.Store({
 		},
 		post(state, post: any) {
 			state.localTimeline.unshift({
-				name: "名無しさん",
+				name: "風吹けば名無し",
 				id: UUID(),
 				host: "@whisperhub.social",
 				isAdmin: false,
