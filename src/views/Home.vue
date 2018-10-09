@@ -27,7 +27,7 @@ import CreateNewPost from "../components/CreateNewPost.vue";
 })
 export default class Home extends Vue {
 	private mounted() {
-		this.fetchLTL();
+		(this as any).fetchLTL();
 	}
 }
 </script>

@@ -25,7 +25,7 @@ import { mapActions } from "vuex";
 		 ...mapActions([
 			"post",
 		]),
-	},})
+	}})
 export default class PostWindow extends Vue {
 	private message = "";
 
@@ -35,7 +35,7 @@ export default class PostWindow extends Vue {
 
 	private isFreezed = false;
 
-	public get canPost() { return this.message.length !== 0 && this.message.length <= this.maxLength && !this.isFreezed }
+	public get canPost() { return this.message.length !== 0 && this.message.length <= this.maxLength && !this.isFreezed; }
 
 	public mounted() {
 		this.updatePlaceHolder();
@@ -53,7 +53,7 @@ export default class PostWindow extends Vue {
 		return new Promise((resolve) => {
 			this.isFreezed = true;
 			setTimeout(() => {
-				this.post(option);
+				(this as any).post(option);
 				this.message = "";
 				this.isFreezed = false;
 				App.windows.close(this);

@@ -8,13 +8,13 @@ export default class WindowManager {
 
 	public open(view: typeof Vue, propsData?: any) {
 		// インスタンス化
-		const window = new view({ parent: this.container, propsData, }).$mount();
+		const window = new view({ parent: this.container, propsData }).$mount();
 		// DOMへの追加
 		this.container.$el.appendChild(window.$el);
 	}
 
 	public close(view: Vue) {
-		this.container.$el.removeChild(view.$el)
+		this.container.$el.removeChild(view.$el);
 	}
 
 }

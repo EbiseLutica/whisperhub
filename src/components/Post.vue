@@ -42,16 +42,16 @@ export default class Post extends Vue {
 	@Prop() private post: IPost;
 
 	public starClicked() {
-		this.setStar({
+		(this as any).setStar({
 			id: this.post.id,
 			isStarred: !this.post.isStarred,
 		});
 	}
 
 	public toggleReaction(r: ReactionViewModel) {
-		let func = this.addReaction;
+		let func = (this as any).addReaction;
 		if (r.isMyReaction) {
-			func = this.removeReaction;
+			func = (this as any).removeReaction;
 		}
 		func({
 			postId: this.post.id,

@@ -32,7 +32,7 @@ export default new Vuex.Store({
 		globalTimeline: Array<IPost>(),
 		threads: Array<IThread>(),
 		isSignedIn: false,
-		userName: ""
+		userName: "",
 	},
 	mutations: {
 		fetchLTL(state) {
@@ -81,8 +81,7 @@ export default new Vuex.Store({
 					reactionCount: 1,
 					isMyReaction: true,
 				});
-			}
-			else {
+			} else {
 				reaction.reactionCount++;
 				reaction.isMyReaction = true;
 			}
@@ -100,8 +99,7 @@ export default new Vuex.Store({
 			// 存在しなければ抜ける
 			if (!reaction) {
 				return;
-			}
-			else {
+			} else {
 				reaction.reactionCount--;
 				reaction.isMyReaction = false;
 
@@ -140,10 +138,10 @@ export default new Vuex.Store({
 		},
 	},
 	getters: {
-		localTimeline: s => s.localTimeline,
-		globalTimeline: s => s.globalTimeline,
-		threads: s => s.threads,
-		userName: s => s.userName,
-		isSignedIn: s => s.isSignedIn,
-	}
+		localTimeline: (s) => s.localTimeline,
+		globalTimeline: (s) => s.globalTimeline,
+		threads: (s) => s.threads,
+		userName: (s) => s.userName,
+		isSignedIn: (s) => s.isSignedIn,
+	},
 });

@@ -24,7 +24,7 @@ import { Prop, Component, Vue } from "vue-property-decorator";
 import UiButton from "../ui/UiButton.vue";
 import { mapActions, mapGetters } from "vuex";
 @Component({
-	components: { UiButton, },
+	components: { UiButton },
 	computed: {
 		...mapGetters(["localTimeline"]),
 	},
@@ -32,12 +32,12 @@ import { mapActions, mapGetters } from "vuex";
 		...mapActions([
 			"signIn",
 		]),
-	}
+	},
 })
 export default class Index extends Vue {
 	public login() {
-		this.signIn({
-			userName: "Xeltica"
+		(this as any).signIn({
+			userName: "Xeltica",
 		});
 	}
 

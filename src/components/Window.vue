@@ -44,7 +44,7 @@ export default class Window extends Vue {
 	}
 
 	public onClose() {
-		let args = { cancel: false };
+		const args = { cancel: false };
 		this.$emit("closebuttonclick", args);
 
 		if (args.cancel) { return; }
