@@ -8,12 +8,10 @@ import { Prop, Component, Vue } from "vue-property-decorator";
 import WindowManager from "./helpers/WindowManager";
 @Component({})
 export default class App extends Vue {
-	private static wm: WindowManager;
-
-	public static get windows() { return App.wm; }
+	static windows : WindowManager;
 
 	public mounted() {
-		App.wm = new WindowManager(this);
+		App.windows = new WindowManager(this);
 	}
 }
 </script>
