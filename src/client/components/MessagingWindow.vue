@@ -10,7 +10,7 @@ window(title="メッセージ", width="512px", :icon="[ 'fas', 'envelope' ]")
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Window from "../components/Window.vue";
+import Window from "./Window.vue";
 @Component({
 	components: { Window },
 })

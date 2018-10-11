@@ -5,7 +5,7 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import WindowManager from "./helpers/WindowManager";
+import WindowManager from "../helpers/WindowManager";
 @Component({})
 export default class App extends Vue {
 	static windows : WindowManager;

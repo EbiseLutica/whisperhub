@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import IPost from "./interfaces/IPost";
-import IMedia from "./interfaces/IMedia";
+import IPost from "../interfaces/IPost";
+import IMedia from "../interfaces/IMedia";
 import IThread from "@/interfaces/IThread";
-import UUID from "./helpers/UUID";
+import UUID from "../helpers/UUID";
 Vue.use(Vuex);
 
 const words = [ "おはよう", "ねむい", "おいしい", "ねこ", "テスト" ];

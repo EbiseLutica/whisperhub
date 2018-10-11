@@ -11,20 +11,31 @@
 			p 名を名乗ることが当たり前の現代のソーシャルサービスから少し離れて、あえてアノニマスの世界を体験してみませんか？
 			.commands
 				ui-button(mode="primary", @click="signUp()") 新規登録
-				ui-button(mode="secondary", @click="login()") ログイン
+				ui-button(mode="secondary", @click="loginIsVisible = true") ログイン
 			aside
 				p#a1 *1: アプリ開発者がアクセスするAPIから、投稿したユーザーを特定することはできませんが、インスタンスの管理人は、法的措置への対処のため、投稿とユーザーの関連付けを見ることができます。
 		section.card.right
 			h1 今こんな話をしています...
 	section.card.info
+	ui-dialog(:isVisible="loginIsVisible", title="ログイン", :icon="['fas', 'user']", @closebuttonclick="loginIsVisible = false")
+		h1 ログインしてください
+		div
+			span ユーザー名:
+				input(type="text", name="user", size="20", maxlength="20", v-model="userName", placeholder="ユーザー名")
+		div
+			span パスワード:
+				input(type="password", name="pass", size="20", v-model="password", placeholder="パスワード")
+		.right
+			ui-button(mode="primary", @click="login()") ログイン
 </template>
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import UiButton from "../ui/UiButton.vue";
+import UiDialog from "../ui/UiDialog.vue";
 import { mapActions, mapGetters } from "vuex";
 @Component({
-	components: { UiButton },
+	components: { UiButton, UiDialog },
 	computed: {
 		...mapGetters(["localTimeline"]),
 	},
@@ -35,9 +46,16 @@ import { mapActions, mapGetters } from "vuex";
 	},
 })
 export default class Index extends Vue {
+	private userName = "";
+	private password = "";
+
+	private loginIsVisible = false;
+	private signUpIsVisible = false;
+
 	public login() {
 		(this as any).signIn({
-			userName: "Xeltica",
+			userName: this.userName,
+			password: this.password,
 		});
 	}
 
@@ -95,6 +113,10 @@ export default class Index extends Vue {
 		width: 20rem;
 	}
 
+	.right {
+		margin: 0.5rem;
+		text-align: right;
+	}
 
 }
 </style>

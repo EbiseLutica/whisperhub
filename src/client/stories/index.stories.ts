@@ -2,12 +2,12 @@
 /* tslint:disable:max-line-length */
 import { storiesOf } from "@storybook/vue";
 
-import Post from "../components/Post.vue";
-import PostList from "../components/PostList.vue";
-import VHeader from "../components/VHeader.vue";
-import Window from "../components/Window.vue";
-import CreateNewPost from "../components/CreateNewPost.vue";
-import AiWindow from "../components/AiWindow.vue";
+import Post from "./Post.vue";
+import PostList from "./PostList.vue";
+import VHeader from "./VHeader.vue";
+import Window from "./Window.vue";
+import CreateNewPost from "./CreateNewPost.vue";
+import AiWindow from "./AiWindow.vue";
 
 import Vue from "vue";
 

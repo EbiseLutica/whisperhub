@@ -1,8 +1,8 @@
 import Vue from "vue";
-import App from "./App.vue";
-import router from "@/router";
-import store from "@/store";
-import "@/registerServiceWorker";
+import App from "@/client/App.vue";
+import router from "@/client/router";
+import store from "@/client/store";
+import "@/client/registerServiceWorker";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";

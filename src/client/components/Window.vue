@@ -66,50 +66,5 @@ export default class Window extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.window {
-	box-shadow: 0 0 8px black;
-	position: fixed;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: stretch;
-
-	.header {
-		display: flex;
-		padding: 0.2rem 2rem;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		height: 2rem;
-		background: rgba(#000, 0.3);
-		font-size: 1.2rem;
-		cursor: move;
-
-		.icon, .title {
-			color: #0a0a0a;
-			text-shadow: 0 0 6px #fafafa;
-			user-select: none;
-			margin-right: 1rem;
-		}
-
-		.close {
-			margin-left: auto;
-			cursor: pointer;
-			color: #f44336;
-		}
-	}
-	.body {
-		margin: auto;
-
-		padding: 0.5rem 2rem;
-	}
-
-	@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-		background: rgba(#fafafa, 0.5);
-		backdrop-filter: blur(8px);
-	}
-	background: #fafafa;
-}
-</style>
+<style lang="scss" scoped src="./css/window.scss"/>
 

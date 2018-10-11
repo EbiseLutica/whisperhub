@@ -16,7 +16,7 @@
 <script lang="ts">
 import { Prop, Component, Vue, Emit, Watch } from "vue-property-decorator";
 import App from "../App.vue";
-import Window from "../components/Window.vue";
+import Window from "./Window.vue";
 import UiButton from "../ui/UiButton.vue";
 import { mapActions } from "vuex";
 @Component({
