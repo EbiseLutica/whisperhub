@@ -27,14 +27,11 @@ cd whisperhub
 # install all deps
 npm i
 # and run it
-npm run serve
-# ...or run a storybook
-npm run books
+npm run dev
 
 # if you want to use yarn
 yarn
-yarn serve
-yarn books
+yarn dev
 ```
 
 ## Contributing

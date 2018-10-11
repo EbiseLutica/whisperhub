@@ -27,14 +27,11 @@ cd whisperhub
 # 依存しているすべてのライブラリをダウンロード
 npm i
 # サーバーを起動
-npm run serve
-# ...またはStoryBookを起動
-npm run books
+npm run dev
 
 # もしyarnを使いたければ
 yarn
 yarn serve
-yarn books
 ```
 
 ## コントリビューション
