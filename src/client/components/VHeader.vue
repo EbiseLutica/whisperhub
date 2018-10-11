@@ -19,7 +19,7 @@ header.vheader
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import App from "../App.vue";
-import MessagingWindow from "../components/MessagingWindow.vue";
+import MessagingWindow from "./MessagingWindow.vue";
 @Component({
 	components: { VHeader },
 })

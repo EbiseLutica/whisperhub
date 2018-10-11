@@ -25,8 +25,8 @@ section
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import ReactionViewModel from "../interfaces/ReactionViewModel";
-import IPost from "../interfaces/IPost";
+import ReactionViewModel from "../../interfaces/ReactionViewModel";
+import IPost from "../../interfaces/IPost";
 import { mapActions } from "vuex";
 @Component({
 	components: { Post },

@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
 import PostList from "../components/PostList.vue";
-import IPost from "../interfaces/IPost";
+import IPost from "../../interfaces/IPost";
 import { mapGetters, mapActions } from "vuex";
 import VHeader from "../components/VHeader.vue";
 import CreateNewPost from "../components/CreateNewPost.vue";

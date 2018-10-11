@@ -1,7 +1,7 @@
 <template lang="pug">
 #root
 	transition-group(name="list", tag="div")
-		post(v-for="(p, i) in $store.getters.threads",
+		post(v-for="(p, i) in posts",
 			:key="p.id",
 			:post="p",
 			)
@@ -9,13 +9,17 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import Post from "../components/Post.vue";
-import IPost from "../interfaces/IPost.vue";
+import Post from "./Post.vue";
+import IPost from "../../interfaces/IPost.vue";
 @Component({
 	components: { Post },
 })
-export default class ThreadsList extends Vue {
+export default class PostList extends Vue {
+	@Prop() private posts: IPost[];
 
+	public mounted() {
+		// あとで何かができる
+	}
 }
 </script>
 

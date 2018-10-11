@@ -4,8 +4,8 @@ component(:is="$store.getters.isSignedIn ? 'home' : 'welcome'")
 
 <script lang="ts">
 import { Prop, Component, Vue } from "vue-property-decorator";
-import Home from "../views/Home.vue";
-import Welcome from "../views/Welcome.vue";
+import Home from "./Home.vue";
+import Welcome from "./Welcome.vue";
 @Component({
 	components: { Home, Welcome },
 })

@@ -6,7 +6,7 @@ button.fab(@click="spawn()")
 <script lang="ts">
 import { Prop, Component, Vue, Emit, Watch } from "vue-property-decorator";
 import App from "../App.vue";
-import PostWindow from "../components/PostWindow.vue";
+import PostWindow from "./PostWindow.vue";
 @Component({})
 export default class CreateNewPost extends Vue {
 	private isVisible = false;
