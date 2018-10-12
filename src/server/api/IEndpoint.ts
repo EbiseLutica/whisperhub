@@ -2,6 +2,12 @@
 
 export interface IEndpointMeta {
 	description: string;
+
+	params?: [string, string][];
+	queries?: [string, string][];
+
+	returnValue?: string;
+
 	requireCertificate?: boolean;
 	requireAdmin?: boolean;
 }
@@ -11,6 +17,7 @@ export interface IRequest {
 	query: any;
 	token?: string;
 }
+
 
 export default interface IEndpoint {
 	/**
