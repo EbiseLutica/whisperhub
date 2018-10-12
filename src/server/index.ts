@@ -1,28 +1,26 @@
-// WhisperHub Server Core
+// WhisperHub Core Server
 
+// Load deps
 import Koa from "koa";
-import Router from "koa-router";
 import serve from "koa-static";
-import send from "koa-send";
+import mount from "koa-mount";
+import Router from "koa-router";
 
 const app = new Koa();
 const router = new Router();
 
 const apiRoot = "/api/v1";
 
+console.log("Initializing web server...");
+
+// Serve the frontend app
 app.use(serve(__dirname + "/../../dist"));
 
-// API
-router.get(`${apiRoot}/ping`, function (ctx, next) {
-	ctx.body = JSON.stringify({
-		ok: true,
-		message: "pong",
-	});
-});
+console.log("Initializing API server...");
+
+app.use(mount(apiRoot, require("./api")));
 
 app.use(router.routes());
-app.use(router.allowedMethods());
-
 
 const port = process.env.port ? process.env.port : 8080;
 
